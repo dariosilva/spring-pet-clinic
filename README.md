@@ -1,2 +1,2 @@
-# spring-pet-clinit
+# spring-pet-clinic
 Spring Pet Clinic 
