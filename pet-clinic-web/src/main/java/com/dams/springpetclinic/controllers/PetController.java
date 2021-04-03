@@ -70,12 +70,14 @@ public class PetController {
             result.rejectValue("name", "duplicate", "already exists");
         }
 
+        pet.setOwner(owner);
         owner.getPets().add(pet);
         if (result.hasErrors()) {
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            petService.save(pet);
+            //petService.save(pet);
+            ownerService.save(owner);
             return OwnerController.VIEWS_REDIRECT_TO_OWNER_DETAILS_PAGE + owner.getId();
         }
     }

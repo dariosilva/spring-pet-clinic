@@ -45,23 +45,27 @@
                 <td valign="top">
                     <table class="table-condensed">
                         <thead>
-                        <tr>
-                            <th>Visit Date</th>
-                            <th>Description</th>
-                        </tr>
+                            <tr>
+                                <th>Visit Date</th>
+                                <th>Description</th>
+                            </tr>
                         </thead>
-                        <tr th:each="visit : ${pet.visits}">
-                            <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
-                            <td th:text="${visit?.description}"></td>
-                        </tr>
-                        <tr>
-                            <td><a
-                                    th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">Edit
-                                Pet</a></td>
-                            <td><a
-                                    th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}">Add
-                                Visit</a></td>
-                        </tr>
+                        <tbody>
+                            <tr th:each="visit : ${pet.visits}">
+                                <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
+                                <td th:text="${visit?.description}"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">
+                                        Edit Pet</a>
+                                </td>
+                                <td>
+                                    <a th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}">
+                                        Add Visit</a>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </td>
             </tr>
